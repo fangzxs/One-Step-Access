@@ -6,5 +6,4 @@ data/backups/
 server.out.log
 server.err.log
 nginx.conf
-
 .claude/

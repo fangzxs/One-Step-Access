@@ -1,4 +1,4 @@
-# SoftHub
+# 一步达
 
 软件/网站导航站，Flask + JSON 数据文件实现。前台由 JavaScript 调用 API 动态渲染，后台使用 Flask 模板管理数据。
 
@@ -48,13 +48,13 @@ waitress-serve --host 127.0.0.1 --port 5000 app:app
 
 ## 环境变量
 
-| 变量 | 默认值 | 说明 |
-|------|--------|------|
-| `SOFTHUB_SECRET_KEY` | - | Flask 会话密钥，**必须设置**为随机字符串 |
-| `SOFTHUB_ADMIN_USERNAME` | `admin` | 后台登录账号 |
-| `SOFTHUB_ADMIN_PASSWORD` | `123456` | 后台登录密码，**上线必须修改** |
-| `SOFTHUB_ENABLE_DATA_BACKUPS` | `1` | 是否启用 JSON 自动备份，设为 `0` 关闭 |
-| `SOFTHUB_BACKUP_KEEP_PER_FILE` | `20` | 每个 JSON 文件最多保留的备份数 |
+| 变量                           | 默认值   | 说明                                     |
+| ------------------------------ | -------- | ---------------------------------------- |
+| `SOFTHUB_SECRET_KEY`           | -        | Flask 会话密钥，**必须设置**为随机字符串 |
+| `SOFTHUB_ADMIN_USERNAME`       | `admin`  | 后台登录账号                             |
+| `SOFTHUB_ADMIN_PASSWORD`       | `123456` | 后台登录密码，**上线必须修改**           |
+| `SOFTHUB_ENABLE_DATA_BACKUPS`  | `1`      | 是否启用 JSON 自动备份，设为 `0` 关闭    |
+| `SOFTHUB_BACKUP_KEEP_PER_FILE` | `20`     | 每个 JSON 文件最多保留的备份数           |
 
 参考 `.env.example` 了解完整配置项。
 
@@ -99,32 +99,32 @@ waitress-serve --host 127.0.0.1 --port 5000 app:app
 
 ### 前台页面
 
-| 路径 | 说明 |
-|------|------|
-| `/` | 首页，展示 Hero 区、推荐、最新、热门、分类 |
-| `/category/<slug>` | 分类详情页 |
-| `/rankings` | 全站访问量排行榜 |
+| 路径               | 说明                                       |
+| ------------------ | ------------------------------------------ |
+| `/`                | 首页，展示 Hero 区、推荐、最新、热门、分类 |
+| `/category/<slug>` | 分类详情页                                 |
+| `/rankings`        | 全站访问量排行榜                           |
 
 ### API
 
-| 路径 | 说明 |
-|------|------|
-| `/api/home` | 首页数据（Hero、推荐、最新、热门、分类），支持 `?q=` 搜索 |
-| `/api/category/<slug>` | 分类数据及站点列表 |
-| `/api/rankings` | 排行榜数据 |
-| `/api/search?q=&category=` | 搜索，最多返回 10 条 |
-| `/api/categories` | 全部分类及计数 |
-| `/api/stats` | 站点访问量和分类统计 |
+| 路径                       | 说明                                                      |
+| -------------------------- | --------------------------------------------------------- |
+| `/api/home`                | 首页数据（Hero、推荐、最新、热门、分类），支持 `?q=` 搜索 |
+| `/api/category/<slug>`     | 分类数据及站点列表                                        |
+| `/api/rankings`            | 排行榜数据                                                |
+| `/api/search?q=&category=` | 搜索，最多返回 10 条                                      |
+| `/api/categories`          | 全部分类及计数                                            |
+| `/api/stats`               | 站点访问量和分类统计                                      |
 
 ### 后台
 
-| 路径 | 说明 |
-|------|------|
-| `/admin` | 仪表盘 |
-| `/admin/sites` | 站点管理（增删改、排序、批量推荐） |
-| `/admin/categories` | 分类管理（增删改、排序、批量删除） |
-| `/admin/hero` | 首页 Hero 区展示配置 |
-| `/admin/import` | JSON 导入/导出 |
+| 路径                     | 说明                                            |
+| ------------------------ | ----------------------------------------------- |
+| `/admin`                 | 仪表盘                                          |
+| `/admin/sites`           | 站点管理（增删改、排序、批量推荐）              |
+| `/admin/categories`      | 分类管理（增删改、排序、批量删除）              |
+| `/admin/hero`            | 首页 Hero 区展示配置                            |
+| `/admin/import`          | JSON 导入/导出                                  |
 | `/admin/export/<target>` | 导出数据（sites / categories / settings / all） |
 
 ## 数据文件
