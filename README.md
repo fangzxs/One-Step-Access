@@ -1,6 +1,10 @@
-# 一步达
+# ![](E:\go-web\static\img\softhub-logo.svg)一步达
 
 软件/网站导航站，Flask + JSON 数据文件实现。前台由 JavaScript 调用 API 动态渲染，后台使用 Flask 模板管理数据。
+
+<img src="E:\go-web\首页.png" style="zoom: 25%;" />
+
+<img src="E:\go-web\后台.png" style="zoom:25%;" />
 
 ## 快速开始
 
@@ -30,16 +34,16 @@ python app.py
 # Linux / macOS
 export SOFTHUB_SECRET_KEY="$(python -c 'import secrets; print(secrets.token_urlsafe(32))')"
 export SOFTHUB_ADMIN_USERNAME="admin"
-export SOFTHUB_ADMIN_PASSWORD="your-strong-password-here"
+export SOFTHUB_ADMIN_PASSWORD="你要设置的密码"
 
 waitress-serve --host 127.0.0.1 --port 5000 app:app
 ```
 
 ```cmd
 :: Windows CMD
-set SOFTHUB_SECRET_KEY=your-random-secret-key
+set SOFTHUB_SECRET_KEY=随便输入一些字符
 set SOFTHUB_ADMIN_USERNAME=admin
-set SOFTHUB_ADMIN_PASSWORD=your-strong-password-here
+set SOFTHUB_ADMIN_PASSWORD=你的密码
 
 waitress-serve --host 127.0.0.1 --port 5000 app:app
 ```
@@ -55,45 +59,6 @@ waitress-serve --host 127.0.0.1 --port 5000 app:app
 | `SOFTHUB_ADMIN_PASSWORD`       | `123456` | 后台登录密码，**上线必须修改**           |
 | `SOFTHUB_ENABLE_DATA_BACKUPS`  | `1`      | 是否启用 JSON 自动备份，设为 `0` 关闭    |
 | `SOFTHUB_BACKUP_KEEP_PER_FILE` | `20`     | 每个 JSON 文件最多保留的备份数           |
-
-参考 `.env.example` 了解完整配置项。
-
-## Nginx 部署
-
-项目提供了 [nginx.conf](nginx.conf) 配置文件，推荐 Nginx 反向代理 + Waitress 的部署架构：
-
-```
-浏览器 → Nginx (80/443) → Waitress (127.0.0.1:5000)
-                ↓
-         /static/ 由 Nginx 直接返回
-```
-
-### 部署步骤
-
-```bash
-# 1. 安装 Nginx
-sudo apt install nginx  # Ubuntu/Debian
-
-# 2. 复制配置文件
-sudo cp nginx.conf /etc/nginx/sites-available/softhub
-# 编辑配置：替换 server_name 和静态文件路径
-sudo vim /etc/nginx/sites-available/softhub
-
-# 3. 启用站点
-sudo ln -s /etc/nginx/sites-available/softhub /etc/nginx/sites-enabled/
-sudo nginx -t && sudo systemctl reload nginx
-
-# 4. 启动 Waitress（可使用 systemd 管理为服务）
-waitress-serve --host 127.0.0.1 --port 5000 app:app
-```
-
-### 配置要点
-
-- **静态文件**：`/static/` 由 Nginx 直接返回，设置 30 天缓存，不经过 Flask 进程
-- **数据保护**：`/data/` 目录已配置 `deny all`，防止 JSON 数据文件被外部下载
-- **上传限制**：`client_max_body_size 10m`，满足 JSON 导入文件上传需求
-- **HTTPS**：配置文件中包含注释掉的 SSL 模板，配合 Let's Encrypt 使用
-- **安全头**：配置了 `X-Content-Type-Options`、`X-Frame-Options` 等基础安全头
 
 ## 页面与 API
 
