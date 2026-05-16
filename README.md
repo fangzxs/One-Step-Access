@@ -1,4 +1,4 @@
-# 一步达
+# ![图标](/static/img/softhub-logo.svg)一步达
 
 软件/网站导航站，Flask + JSON 数据文件实现。前台由 JavaScript 调用 API 动态渲染，后台使用 Flask 模板管理数据。
 
