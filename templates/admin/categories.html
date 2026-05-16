@@ -1,0 +1,72 @@
+{% extends "admin/base.html" %}
+
+{% block title %}管理分类 - SoftHub{% endblock %}
+
+{% block content %}
+  <section class="admin-title-row">
+    <div>
+      <h1>管理分类</h1>
+      <p>查看分类下的软件，维护分类顺序和分类信息。</p>
+    </div>
+    <a class="btn primary" href="{{ url_for('admin_category_new') }}">新增分类</a>
+  </section>
+
+  <form action="{{ url_for('admin_categories_batch') }}" method="post" data-bulk-form>
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <div class="bulk-toolbar">
+      <label class="select-all">
+        <input type="checkbox" data-select-all>
+        全选
+      </label>
+      <button class="small-btn danger" type="submit" name="action" value="delete" data-confirm="确定删除选中的分类吗？正在被软件使用的分类会自动跳过。">批量删除</button>
+      <button class="small-btn" type="submit" formaction="{{ url_for('admin_categories_reorder') }}" data-save-order>保存排序</button>
+      <span data-selected-count>已选择 0 项</span>
+    </div>
+
+    <div class="admin-table compact-table category-table sortable-table" data-sortable-list>
+      {% for category in categories %}
+        {% set category_sites = sites_by_category.get(category.slug, []) %}
+        <article class="category-row" draggable="true" data-sort-row>
+          <input type="hidden" name="order" value="{{ loop.index0 }}">
+          <label class="row-check" aria-label="选择 {{ category.name }}">
+            <input type="checkbox" name="selected" value="{{ loop.index0 }}" data-row-check>
+          </label>
+          <span class="round-icon">{{ category.name[0] }}</span>
+          <div class="admin-item-main">
+            <strong>{{ category.name }}</strong>
+            <p>/category/{{ category.slug }}</p>
+          </div>
+          <span class="admin-count" data-category-count="{{ category.slug }}">{{ category.count }} 款</span>
+          <div class="row-actions">
+            <a class="small-btn" href="{{ url_for('admin_category_edit', category_index=loop.index0) }}">编辑</a>
+            <button class="small-btn danger" type="submit" name="action" value="delete-one-{{ loop.index0 }}" formaction="{{ url_for('admin_category_delete', category_index=loop.index0) }}" data-confirm="确定删除这个分类吗？">删除</button>
+          </div>
+          <div class="category-sites" hidden>
+            {% if category_sites %}
+              {% for site in category_sites %}
+                <div class="category-site-row">
+                  {% with icon_class='recommend-logo' %}
+                    {% include "_site_icon.html" %}
+                  {% endwith %}
+                  <div class="admin-item-main">
+                    <strong>{{ site.name }}</strong>
+                    <p>{{ site.description }}</p>
+                  </div>
+                  <span>{{ site.visits | compact_count }} 次</span>
+                  <div class="row-actions">
+                    <a class="small-btn" href="{{ url_for('admin_site_edit', site_index=site._index) }}">编辑</a>
+                    <a class="small-btn" href="{{ url_for('visit_site', site_index=site._index) }}" target="_blank" rel="noopener">访问</a>
+                  </div>
+                </div>
+              {% endfor %}
+            {% else %}
+              <div class="empty-admin compact-empty">这个分类下暂无软件。</div>
+            {% endif %}
+          </div>
+        </article>
+      {% else %}
+        <div class="empty-admin">暂无分类，请先新增。</div>
+      {% endfor %}
+    </div>
+  </form>
+{% endblock %}

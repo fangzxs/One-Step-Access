@@ -1,0 +1,8 @@
+<span class="{{ icon_class | default('site-logo') }} auto-logo{% if site._favicon_url %} has-favicon{% endif %}" style="--logo-color: {{ site.logo_color }}">
+  {% if site._favicon_url %}
+    <img src="{{ site._favicon_url }}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.hidden=true; this.nextElementSibling.hidden=false;">
+    <span hidden>{{ site._logo_text }}</span>
+  {% else %}
+    <span>{{ site._logo_text }}</span>
+  {% endif %}
+</span>

@@ -1,0 +1,43 @@
+{% extends "admin/base.html" %}
+
+{% block title %}首页展示 - SoftHub 后台{% endblock %}
+
+{% block content %}
+  <section class="admin-title-row">
+    <div>
+      <h1>首页展示</h1>
+      <p>选择最多 4 个已添加的软件，用于首页右侧浮动图标区域。</p>
+    </div>
+    <a class="btn ghost" href="{{ url_for('index') }}">查看首页</a>
+  </section>
+
+  <form method="post" data-hero-form>
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <div class="bulk-toolbar">
+      <span data-hero-count>已选择 0 / 4</span>
+      <button class="small-btn" type="button" data-clear-hero>清空选择</button>
+      <button class="small-btn primary-action" type="submit">保存展示</button>
+    </div>
+
+    <div class="admin-table site-table hero-select-table">
+      {% for site in sites %}
+        <article>
+          <label class="row-check" aria-label="选择 {{ site.name }}">
+            <input type="checkbox" name="selected" value="{{ site._index }}" data-hero-check {{ 'checked' if site._index in selected else '' }}>
+          </label>
+          {% with icon_class='recommend-logo' %}
+            {% include "_site_icon.html" %}
+          {% endwith %}
+          <div>
+            <strong>{{ site.name }}</strong>
+            <p>{{ site.description }}</p>
+          </div>
+          <span>{{ site._category_names | join('、') }}</span>
+          <span>{{ site.visits | compact_count }} 次</span>
+        </article>
+      {% else %}
+        <div class="empty-admin">暂无软件，请先新增软件。</div>
+      {% endfor %}
+    </div>
+  </form>
+{% endblock %}

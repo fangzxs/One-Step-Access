@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>后台登录 - SoftHub</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+  </head>
+  <body class="login-page">
+    <form class="login-card" method="post">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      <span class="login-mark">S</span>
+      <h1>后台登录</h1>
+      <p>请输入管理员账号后继续。</p>
+      {% include "admin/_messages.html" %}
+      <label>
+        账号
+        <input name="username" autocomplete="username" required>
+      </label>
+      <label>
+        密码
+        <input name="password" type="password" autocomplete="current-password" required>
+      </label>
+      <button type="submit">登录</button>
+    </form>
+  </body>
+</html>

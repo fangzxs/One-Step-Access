@@ -1,0 +1,74 @@
+{% extends "admin/base.html" %}
+
+{% block title %}{{ title }} - SoftHub{% endblock %}
+
+{% block content %}
+  <section class="admin-title-row">
+    <div>
+      <h1>{{ title }}</h1>
+      <p>填写软件名称、链接、分类和基础展示信息。</p>
+    </div>
+    <a class="btn ghost" href="{{ url_for('admin_sites') }}">返回列表</a>
+  </section>
+
+  <form class="admin-form" method="post">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <label>
+      软件名称
+      <input name="name" required value="{{ site.name | default('') }}">
+    </label>
+    <label>
+      版本
+      {% set current_version = site.version | default('官网') %}
+      <select name="version">
+        <option value="官网" {{ 'selected' if current_version in ['官网', 'Web'] else '' }}>官网</option>
+        <option value="软件" {{ 'selected' if current_version == '软件' else '' }}>软件</option>
+        <option value="网站" {{ 'selected' if current_version == '网站' else '' }}>网站</option>
+      </select>
+    </label>
+    <label class="wide-field">
+      访问链接
+      <input name="url" type="url" required pattern="https?://.+" placeholder="https://example.com" value="{{ site.url | default('') }}">
+    </label>
+    <label class="wide-field">
+      简介
+      <textarea name="description" required rows="3">{{ site.description | default('') }}</textarea>
+    </label>
+    <div class="wide-field">
+      <span class="field-label">分类</span>
+      <div class="check-grid">
+        {% for category in categories %}
+          <label class="check-field compact-check">
+            <input name="categories" type="checkbox" value="{{ category.slug }}" {{ 'checked' if category.slug in site._category_slugs or (not site._category_slugs and loop.first) else '' }}>
+            {{ category.name }}
+          </label>
+        {% endfor %}
+      </div>
+    </div>
+    <label>
+      评分
+      <input name="rating" type="number" min="0" max="5" step="0.1" value="{{ site.rating | default(4.5) }}">
+    </label>
+    <div class="form-note">
+      <strong>访问量：</strong>{{ site.visits | default(0) | compact_count }} 次。
+      <strong>收录日期：</strong>新增时自动记录。
+      <strong>更新时间：</strong>每次保存时自动更新。
+    </div>
+    <label>
+      图标文字
+      <input name="logo_text" maxlength="3" value="{{ site.logo_text | default('') }}" placeholder="不填则自动生成">
+    </label>
+    <label>
+      图标颜色
+      <input name="logo_color" type="color" value="{{ site.logo_color | default('#2563eb') }}">
+    </label>
+    <label class="check-field">
+      <input name="recommended" type="checkbox" {{ 'checked' if site.recommended else '' }}>
+      设为编辑推荐
+    </label>
+    <div class="form-actions">
+      <button class="btn primary" type="submit">保存</button>
+      <a class="btn ghost" href="{{ url_for('admin_sites') }}">取消</a>
+    </div>
+  </form>
+{% endblock %}

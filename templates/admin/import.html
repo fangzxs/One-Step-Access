@@ -1,0 +1,50 @@
+{% extends "admin/base.html" %}
+
+{% block title %}导入/导出 JSON - SoftHub 后台{% endblock %}
+
+{% block content %}
+  <section class="page-head">
+    <div>
+      <h1>导入/导出 JSON</h1>
+      <p>可以上传 JSON 文件、粘贴 JSON 内容，也可以下载当前数据备份。</p>
+    </div>
+  </section>
+
+  <section class="admin-form export-panel">
+    <div class="wide-field">
+      <h2>导出 JSON</h2>
+      <p>导出的文件可用于备份、迁移或手动编辑。</p>
+    </div>
+    <form class="export-actions wide-field" data-export-form>
+      <select name="target" aria-label="选择导出类型">
+        <option value="{{ url_for('admin_export', target='sites') }}">导出软件 sites.json</option>
+        <option value="{{ url_for('admin_export', target='categories') }}">导出分类 categories.json</option>
+        <option value="{{ url_for('admin_export', target='settings') }}">导出设置 settings.json</option>
+        <option value="{{ url_for('admin_export', target='all') }}">导出全部数据</option>
+      </select>
+      <button class="small-btn primary-link" type="submit">导出</button>
+    </form>
+  </section>
+
+  <form class="admin-form import-form" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <label>
+      导入目标
+      <select name="target">
+        <option value="sites">软件 sites.json</option>
+        <option value="categories">分类 categories.json</option>
+      </select>
+    </label>
+    <label>
+      选择 JSON 文件
+      <input name="json_file" type="file" accept=".json,application/json">
+    </label>
+    <label class="wide-field">
+      或粘贴 JSON
+      <textarea name="json_text" rows="14" placeholder='[{"name":"示例软件","url":"https://example.com","description":"软件简介","category":"dev-tools"}]'></textarea>
+    </label>
+    <div class="form-actions">
+      <button class="primary-action" type="submit">开始导入</button>
+    </div>
+  </form>
+{% endblock %}

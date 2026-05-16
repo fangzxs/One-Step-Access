@@ -1,0 +1,37 @@
+[
+  {
+    "name": "常用软件",
+    "slug": "cat-86cd431d",
+    "icon": "常"
+  },
+  {
+    "name": "通讯工具",
+    "slug": "cat-40a1c16e",
+    "icon": "通"
+  },
+  {
+    "name": "游戏娱乐",
+    "slug": "cat-2148d697",
+    "icon": "游"
+  },
+  {
+    "name": "美术设计",
+    "slug": "cat-0361f6d6",
+    "icon": "美"
+  },
+  {
+    "name": "系统工具",
+    "slug": "cat-9ec02601",
+    "icon": "系"
+  },
+  {
+    "name": "编程开发",
+    "slug": "cat-aa2d8f39",
+    "icon": "编"
+  },
+  {
+    "name": "常用网站",
+    "slug": "cat-78320fbf",
+    "icon": "网"
+  }
+]

@@ -1,0 +1,55 @@
+{% extends "admin/base.html" %}
+
+{% block title %}管理软件 - SoftHub{% endblock %}
+
+{% block content %}
+  <section class="admin-title-row">
+    <div>
+      <h1>管理软件</h1>
+      <p>维护前台首页、分类页、排行榜和编辑推荐中展示的软件。</p>
+    </div>
+    <a class="btn primary" href="{{ url_for('admin_site_new') }}">新增软件</a>
+  </section>
+
+  <form action="{{ url_for('admin_sites_batch') }}" method="post" data-bulk-form>
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <div class="bulk-toolbar">
+      <label class="select-all">
+        <input type="checkbox" data-select-all>
+        全选
+      </label>
+      <button class="small-btn" type="submit" name="action" value="recommend">设为推荐</button>
+      <button class="small-btn" type="submit" name="action" value="unrecommend">取消推荐</button>
+      <button class="small-btn danger" type="submit" name="action" value="delete" data-confirm="确定删除选中的软件吗？">批量删除</button>
+      <button class="small-btn" type="submit" formaction="{{ url_for('admin_sites_reorder') }}" data-save-order>保存排序</button>
+      <span data-selected-count>已选择 0 项</span>
+    </div>
+
+    <div class="admin-table site-table sortable-table" data-sortable-list>
+      {% for site in sites %}
+        <article draggable="true" data-sort-row>
+          <input type="hidden" name="order" value="{{ site._index }}">
+          <label class="row-check" aria-label="选择 {{ site.name }}">
+            <input type="checkbox" name="selected" value="{{ site._index }}" data-row-check>
+          </label>
+          {% with icon_class='recommend-logo' %}
+            {% include "_site_icon.html" %}
+          {% endwith %}
+          <div class="admin-item-main">
+            <strong>{{ site.name }}</strong>
+            <p>{{ site.description }}</p>
+          </div>
+          <span class="admin-categories">{{ site._category_names | join('、') }}</span>
+          <span class="status-badge {{ 'on' if site.recommended else '' }}">{{ '推荐' if site.recommended else '普通' }}</span>
+          <span class="admin-count">{{ site.visits | compact_count }} 次</span>
+          <div class="row-actions">
+            <a class="small-btn" href="{{ url_for('admin_site_edit', site_index=site._index) }}">编辑</a>
+            <button class="small-btn danger" type="submit" name="action" value="delete-one-{{ site._index }}" formaction="{{ url_for('admin_site_delete', site_index=site._index) }}" data-confirm="确定删除这个软件吗？">删除</button>
+          </div>
+        </article>
+      {% else %}
+        <div class="empty-admin">暂无软件，请先新增。</div>
+      {% endfor %}
+    </div>
+  </form>
+{% endblock %}

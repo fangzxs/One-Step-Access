@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}页面未找到 - SoftHub{% endblock %}
+
+{% block content %}
+  <section class="empty-page">
+    <h1>页面未找到</h1>
+    <p>这个地址暂时没有内容，可以回到首页继续浏览。</p>
+    <a class="btn primary" href="{{ url_for('index') }}">返回首页</a>
+  </section>
+{% endblock %}

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}SoftHub 后台{% endblock %}</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/admin.css') }}"
+    />
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <a class="admin-brand" href="{{ url_for('admin_dashboard') }}">
+          <span>管</span>
+          <strong>管理后台</strong>
+        </a>
+        <nav>
+          <a
+            class="{{ 'active' if request.endpoint == 'admin_dashboard' else '' }}"
+            href="{{ url_for('admin_dashboard') }}"
+            >概览</a
+          >
+          <a
+            class="{{ 'active' if request.endpoint in ['admin_sites', 'admin_site_new', 'admin_site_edit', 'admin_site_delete'] else '' }}"
+            href="{{ url_for('admin_sites') }}"
+            >软件管理</a
+          >
+          <a
+            class="{{ 'active' if request.endpoint == 'admin_hero' else '' }}"
+            href="{{ url_for('admin_hero') }}"
+            >首页展示</a
+          >
+          <a
+            class="{{ 'active' if request.endpoint in ['admin_categories', 'admin_category_new', 'admin_category_edit', 'admin_category_delete'] else '' }}"
+            href="{{ url_for('admin_categories') }}"
+            >分类管理</a
+          >
+          <a
+            class="{{ 'active' if request.endpoint == 'admin_import' else '' }}"
+            href="{{ url_for('admin_import') }}"
+            >导入 JSON</a
+          >
+          <a href="{{ url_for('index') }}">返回前台</a>
+        </nav>
+      </aside>
+
+      <main class="admin-main">
+        <header class="admin-top">
+          <div>
+            <strong>管理后台</strong>
+            <span>本地 JSON 数据管理</span>
+          </div>
+          <a href="{{ url_for('admin_logout') }}">退出登录</a>
+        </header>
+
+        {% include "admin/_messages.html" %} {% block content %}{% endblock %}
+      </main>
+    </div>
+    <script src="{{ url_for('static', filename='js/admin.js') }}"></script>
+  </body>
+</html>

@@ -1,0 +1,329 @@
+[
+  {
+    "name": "QQ",
+    "version": "官网",
+    "url": "https://im.qq.com/index/#/",
+    "description": "腾讯即时通讯软件",
+    "category": "cat-86cd431d",
+    "categories": [
+      "cat-86cd431d"
+    ],
+    "tags": [],
+    "rating": 4.9,
+    "visits": 24,
+    "added_at": "2026-05-15T00:15:07+08:00",
+    "updated_at": "2026-05-14T13:58:44+08:00",
+    "logo_text": "QQ",
+    "logo_color": "#2563eb",
+    "recommended": true
+  },
+  {
+    "name": "微信",
+    "version": "官网",
+    "url": "https://weixin.qq.com/",
+    "description": "小而美",
+    "category": "cat-86cd431d",
+    "categories": [
+      "cat-86cd431d",
+      "cat-40a1c16e"
+    ],
+    "tags": [],
+    "rating": 4.5,
+    "visits": 0,
+    "added_at": "2026-05-15T00:15:08+08:00",
+    "updated_at": "2026-05-13T11:25:19+08:00",
+    "logo_text": "微信",
+    "logo_color": "#2563eb",
+    "recommended": true
+  },
+  {
+    "name": "Telegram",
+    "version": "官网",
+    "url": "https://telegram.org/",
+    "description": "懂得都懂",
+    "category": "cat-86cd431d",
+    "categories": [
+      "cat-86cd431d"
+    ],
+    "tags": [],
+    "rating": 5.0,
+    "visits": 0,
+    "added_at": "2026-05-15T00:15:09+08:00",
+    "updated_at": "2026-05-13T11:37:25+08:00",
+    "logo_text": "TE",
+    "logo_color": "#2563eb",
+    "recommended": false
+  },
+  {
+    "name": "QQ音乐",
+    "version": "官网",
+    "url": "https://y.qq.com/",
+    "description": "腾讯的音乐播放软件",
+    "category": "cat-86cd431d",
+    "tags": [],
+    "rating": 4.5,
+    "visits": 12,
+    "added_at": "2026-05-15T00:15:10+08:00",
+    "updated_at": "2026-04-27T21:16:04+08:00",
+    "logo_text": "QQ",
+    "logo_color": "#2563eb",
+    "recommended": true
+  },
+  {
+    "name": "网易云音乐",
+    "version": "官网",
+    "url": "https://music.163.com/",
+    "description": "网易的音乐播放软件",
+    "category": "cat-86cd431d",
+    "tags": [],
+    "rating": 4.5,
+    "visits": 10,
+    "added_at": "2026-05-15T00:15:11+08:00",
+    "updated_at": "2026-04-28T11:15:13+08:00",
+    "logo_text": "网易",
+    "logo_color": "#2563eb",
+    "recommended": true
+  },
+  {
+    "name": "落雪音乐",
+    "version": "官网",
+    "url": "https://lxmusic.toside.cn/",
+    "description": "一款开源的音乐播放器",
+    "category": "cat-86cd431d",
+    "categories": [
+      "cat-86cd431d",
+      "cat-2148d697"
+    ],
+    "tags": [],
+    "rating": 4.5,
+    "visits": 0,
+    "added_at": "2026-05-15T00:15:12+08:00",
+    "updated_at": "2026-05-13T11:26:49+08:00",
+    "logo_text": "落雪",
+    "logo_color": "#2563eb",
+    "recommended": false
+  },
+  {
+    "name": "Potplayer",
+    "version": "官网",
+    "url": "https://potplayer.tv/",
+    "description": "一款视频播放器",
+    "category": "cat-86cd431d",
+    "categories": [
+      "cat-86cd431d"
+    ],
+    "tags": [],
+    "rating": 4.5,
+    "visits": 0,
+    "added_at": "2026-05-15T00:15:13+08:00",
+    "updated_at": "2026-05-13T11:35:11+08:00",
+    "logo_text": "PO",
+    "logo_color": "#2563eb",
+    "recommended": false
+  },
+  {
+    "name": "OBS Studio",
+    "version": "官网",
+    "url": "https://obsproject.com/",
+    "description": "录屏软件",
+    "category": "cat-86cd431d",
+    "categories": [
+      "cat-86cd431d",
+      "cat-0361f6d6"
+    ],
+    "tags": [],
+    "rating": 5.0,
+    "visits": 0,
+    "added_at": "2026-05-15T00:15:14+08:00",
+    "updated_at": "2026-05-13T11:36:04+08:00",
+    "logo_text": "OS",
+    "logo_color": "#2563eb",
+    "recommended": true
+  },
+  {
+    "name": "Visual Studio Code",
+    "version": "官网",
+    "url": "https://code.visualstudio.com/",
+    "description": "微软开发的轻量级代码编辑器",
+    "category": "cat-86cd431d",
+    "categories": [
+      "cat-86cd431d",
+      "cat-aa2d8f39"
+    ],
+    "tags": [],
+    "rating": 4.5,
+    "visits": 10,
+    "added_at": "2026-05-15T00:15:15+08:00",
+    "updated_at": "2026-04-28T11:48:16+08:00",
+    "logo_text": "VS",
+    "logo_color": "#2563eb",
+    "recommended": true
+  },
+  {
+    "name": "Steam",
+    "version": "官网",
+    "url": "https://store.steampowered.com/",
+    "description": "全球知名游戏平台",
+    "category": "cat-86cd431d",
+    "categories": [
+      "cat-86cd431d",
+      "cat-2148d697"
+    ],
+    "tags": [],
+    "rating": 4.5,
+    "visits": 9,
+    "added_at": "2026-05-15T00:15:16+08:00",
+    "updated_at": "2026-04-28T11:49:28+08:00",
+    "logo_text": "ST",
+    "logo_color": "#2563eb",
+    "recommended": true
+  },
+  {
+    "name": "Epic",
+    "version": "官网",
+    "url": "https://store.epicgames.com/",
+    "description": "e父",
+    "category": "cat-86cd431d",
+    "categories": [
+      "cat-86cd431d",
+      "cat-2148d697"
+    ],
+    "tags": [],
+    "rating": 5.0,
+    "visits": 1,
+    "added_at": "2026-05-15T00:15:17+08:00",
+    "updated_at": "2026-05-13T11:40:39+08:00",
+    "logo_text": "EP",
+    "logo_color": "#2563eb",
+    "recommended": false
+  },
+  {
+    "name": "落雪插件",
+    "version": "官网",
+    "url": "https://pay.shiqianjiang.cn/item/8",
+    "description": "落雪音乐的插件",
+    "category": "cat-78320fbf",
+    "categories": [
+      "cat-78320fbf"
+    ],
+    "tags": [],
+    "rating": 5.0,
+    "visits": 0,
+    "added_at": "2026-05-15T00:15:18+08:00",
+    "updated_at": "2026-05-13T11:28:34+08:00",
+    "logo_text": "落雪",
+    "logo_color": "#2563eb",
+    "recommended": false
+  },
+  {
+    "name": "UU远程",
+    "version": "官网",
+    "url": "https://uuyc.163.com/",
+    "description": "远程控制软件",
+    "category": "cat-86cd431d",
+    "categories": [
+      "cat-86cd431d"
+    ],
+    "tags": [],
+    "rating": 5.0,
+    "visits": 0,
+    "added_at": "2026-05-15T00:15:19+08:00",
+    "updated_at": "2026-05-13T11:30:05+08:00",
+    "logo_text": "UU",
+    "logo_color": "#2563eb",
+    "recommended": true
+  },
+  {
+    "name": "图吧工具箱",
+    "version": "官网",
+    "url": "https://www.tbtool.cn/",
+    "description": "系统检测工具",
+    "category": "cat-86cd431d",
+    "categories": [
+      "cat-86cd431d",
+      "cat-9ec02601"
+    ],
+    "tags": [],
+    "rating": 5.0,
+    "visits": 1,
+    "added_at": "2026-05-15T00:15:20+08:00",
+    "updated_at": "2026-05-13T11:39:52+08:00",
+    "logo_text": "图吧",
+    "logo_color": "#2563eb",
+    "recommended": true
+  },
+  {
+    "name": "geek",
+    "version": "官网",
+    "url": "https://geekuninstaller.com/download",
+    "description": "软件卸载工具",
+    "category": "cat-86cd431d",
+    "categories": [
+      "cat-86cd431d",
+      "cat-9ec02601"
+    ],
+    "tags": [],
+    "rating": 4.9,
+    "visits": 2,
+    "added_at": "2026-05-15T00:15:21+08:00",
+    "updated_at": "2026-05-13T11:39:01+08:00",
+    "logo_text": "GE",
+    "logo_color": "#2563eb",
+    "recommended": true
+  },
+  {
+    "name": "Office Tool Plus",
+    "version": "官网",
+    "url": "https://otp.landian.vip/zh-cn/",
+    "description": "一键部署 Office",
+    "category": "cat-86cd431d",
+    "categories": [
+      "cat-86cd431d"
+    ],
+    "tags": [],
+    "rating": 5.0,
+    "visits": 0,
+    "added_at": "2026-05-15T00:15:22+08:00",
+    "updated_at": "2026-05-13T11:31:27+08:00",
+    "logo_text": "OT",
+    "logo_color": "#2563eb",
+    "recommended": true
+  },
+  {
+    "name": "FileCR",
+    "version": "官网",
+    "url": "https://filecr.com/home/",
+    "description": "破解软件网站",
+    "category": "cat-78320fbf",
+    "categories": [
+      "cat-78320fbf"
+    ],
+    "tags": [],
+    "rating": 5.0,
+    "visits": 0,
+    "added_at": "2026-05-15T00:15:23+08:00",
+    "updated_at": "2026-05-13T11:33:05+08:00",
+    "logo_text": "FI",
+    "logo_color": "#2563eb",
+    "recommended": false
+  },
+  {
+    "name": "游戏加加",
+    "version": "官网",
+    "url": "https://gamepp.com/",
+    "description": "游戏画面滤镜和游戏是电脑监控",
+    "category": "cat-86cd431d",
+    "categories": [
+      "cat-86cd431d",
+      "cat-2148d697"
+    ],
+    "tags": [],
+    "rating": 4.5,
+    "visits": 0,
+    "added_at": "2026-05-15T00:20:13+08:00",
+    "updated_at": "2026-05-15T00:20:13+08:00",
+    "logo_text": "游戏",
+    "logo_color": "#2563eb",
+    "recommended": false
+  }
+]

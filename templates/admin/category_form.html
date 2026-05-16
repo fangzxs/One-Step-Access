@@ -1,0 +1,38 @@
+{% extends "admin/base.html" %}
+
+{% block title %}{{ title }} - SoftHub{% endblock %}
+
+{% block content %}
+  <section class="admin-title-row">
+    <div>
+      <h1>{{ title }}</h1>
+      <p>只需要填写分类名称，地址标识、图标和数量会自动生成。</p>
+    </div>
+    <a class="btn ghost" href="{{ url_for('admin_categories') }}">返回列表</a>
+  </section>
+
+  <form class="admin-form narrow-form" method="post">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <label class="wide-field">
+      分类名称
+      <input name="name" required value="{{ category.name | default('') }}" placeholder="常用软件">
+    </label>
+
+    {% if category.slug %}
+      <div class="form-note">
+        <strong>地址标识：</strong>{{ category.slug }}。
+        <strong>图标：</strong>{{ category.icon | default(category.name[0]) }}。
+        <strong>数量：</strong>按当前软件数据实时统计。
+      </div>
+    {% else %}
+      <div class="form-note">
+        保存后会自动生成地址标识和图标；分类数量会按软件归类实时统计。
+      </div>
+    {% endif %}
+
+    <div class="form-actions">
+      <button class="btn primary" type="submit">保存</button>
+      <a class="btn ghost" href="{{ url_for('admin_categories') }}">取消</a>
+    </div>
+  </form>
+{% endblock %}

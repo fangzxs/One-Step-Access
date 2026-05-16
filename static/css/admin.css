@@ -1,0 +1,625 @@
+:root {
+  --bg: #f4f6f8;
+  --side: #111827;
+  --panel: #ffffff;
+  --line: #e5e7eb;
+  --text: #111827;
+  --muted: #6b7280;
+  --blue: #2563eb;
+  --danger: #dc2626;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  background: var(--bg);
+  font-family: "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.admin-shell {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  min-height: 100vh;
+}
+
+.admin-sidebar {
+  padding: 22px;
+  color: #d1d5db;
+  background: var(--side);
+}
+
+.admin-brand {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 28px;
+  color: #fff;
+}
+
+.admin-brand span,
+.login-mark {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 900;
+  background: var(--blue);
+}
+
+.admin-sidebar nav {
+  display: grid;
+  gap: 8px;
+}
+
+.admin-sidebar nav a {
+  padding: 12px 14px;
+  border-radius: 8px;
+  color: #cbd5e1;
+}
+
+.admin-sidebar nav a:hover,
+.admin-sidebar nav a.active {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.admin-main {
+  padding: 24px;
+}
+
+.admin-top,
+.page-head,
+.admin-hero,
+.admin-title-row,
+.admin-stats article,
+.admin-grid a,
+.admin-table,
+.admin-form,
+.login-card {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+}
+
+.admin-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+  padding: 14px 18px;
+}
+
+.admin-top span {
+  display: block;
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.admin-top a {
+  color: var(--danger);
+  font-weight: 700;
+}
+
+.page-head,
+.admin-hero,
+.admin-title-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: center;
+  margin-bottom: 18px;
+  padding: 22px;
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-size: 26px;
+}
+
+p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.admin-actions,
+.form-actions,
+.row-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.row-actions {
+  justify-content: flex-end;
+  white-space: nowrap;
+}
+
+.btn,
+.primary-action,
+.small-btn,
+.login-card button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font: inherit;
+  font-weight: 700;
+  line-height: 1;
+  text-indent: 0;
+  text-decoration: none;
+  white-space: nowrap;
+  background: #fff;
+  cursor: pointer;
+}
+
+.btn.primary,
+.primary-action,
+.login-card button {
+  color: #fff;
+  -webkit-text-fill-color: #fff;
+  border-color: var(--blue);
+  background: var(--blue);
+}
+
+.admin-stats,
+.admin-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.admin-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.admin-stats article,
+.admin-grid a {
+  padding: 20px;
+}
+
+.admin-stats span {
+  display: block;
+  color: var(--blue);
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.admin-grid strong {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.flash-list {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.flash-list p {
+  padding: 12px 14px;
+  border: 1px solid #bfdbfe;
+  border-radius: 8px;
+  color: #1d4ed8;
+  background: #eff6ff;
+}
+
+.admin-table {
+  display: grid;
+  overflow: hidden;
+}
+
+.admin-table article {
+  display: grid;
+  grid-template-columns: 34px 52px minmax(320px, 1.4fr) minmax(160px, 0.8fr) 72px 90px 190px;
+  gap: 16px;
+  align-items: center;
+  padding: 14px 18px;
+}
+
+.admin-table.compact-table article {
+  grid-template-columns: 34px 52px minmax(320px, 1fr) 100px 190px;
+}
+
+.admin-table.compact-table article.category-row {
+  grid-template-columns: 34px 52px minmax(320px, 1fr) 100px 190px;
+  cursor: pointer;
+}
+
+.admin-table article + article {
+  border-top: 1px solid var(--line);
+}
+
+.recommend-logo,
+.round-icon {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border-radius: 8px;
+  color: #fff;
+  background: var(--logo-color, var(--blue));
+  font-weight: 900;
+}
+
+.auto-logo {
+  overflow: hidden;
+}
+
+.auto-logo img {
+  width: 72%;
+  height: 72%;
+  object-fit: contain;
+}
+
+.auto-logo span {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  place-items: center;
+}
+
+.auto-logo img:not([hidden]) + span {
+  display: none;
+}
+
+.auto-logo.has-favicon {
+  background: transparent;
+}
+
+.auto-logo.has-favicon img {
+  width: 100%;
+  height: 100%;
+}
+
+.auto-logo.has-favicon img[hidden] + span {
+  display: grid;
+}
+
+.auto-logo.has-favicon:has(img[hidden]) {
+  background: var(--logo-color, var(--blue));
+}
+
+.round-icon {
+  border-radius: 50%;
+  background: var(--blue);
+}
+
+.small-btn {
+  min-height: 34px;
+  padding: 0 12px;
+  color: var(--blue);
+}
+
+.small-btn.danger {
+  color: var(--danger);
+}
+
+.small-btn.primary-link {
+  color: #fff;
+  border-color: var(--blue);
+  background: var(--blue);
+}
+
+.is-dragging {
+  opacity: 0.55;
+  background: #eff6ff;
+}
+
+.export-panel {
+  margin-bottom: 18px;
+}
+
+.export-panel h2 {
+  margin: 0 0 8px;
+  font-size: 20px;
+}
+
+.export-actions {
+  display: flex;
+  max-width: 520px;
+  gap: 10px;
+  align-items: center;
+}
+
+.export-actions select {
+  flex: 1;
+}
+
+.admin-item-main {
+  min-width: 0;
+}
+
+.admin-item-main strong {
+  display: block;
+  margin-bottom: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.admin-item-main p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.admin-categories,
+.admin-count {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.category-sites {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 8px;
+  margin-top: 8px;
+  padding: 12px 12px 12px 86px;
+  border-top: 1px dashed var(--line);
+  background: #f8fafc;
+}
+
+.category-sites[hidden] {
+  display: none;
+}
+
+.category-site-row {
+  display: grid;
+  grid-template-columns: 42px minmax(260px, 1fr) 90px 120px;
+  gap: 12px;
+  align-items: center;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.compact-empty {
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+/* 批量工具栏：放在列表上方，控制全选、推荐、删除等批量动作。 */
+.bulk-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 12px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+}
+
+.bulk-toolbar span {
+  margin-left: auto;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.select-all,
+.row-check {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  font-weight: 700;
+}
+
+.row-check {
+  justify-content: center;
+}
+
+.select-all input,
+.row-check input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--blue);
+}
+
+/* 推荐状态徽标：后台列表中直接看到哪些软件会出现在前台编辑推荐。 */
+.status-badge {
+  display: inline-flex;
+  justify-content: center;
+  width: fit-content;
+  min-width: 48px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  color: #64748b;
+  background: #f1f5f9;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.status-badge.on {
+  color: #166534;
+  background: #dcfce7;
+}
+
+.empty-admin {
+  padding: 28px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.admin-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  padding: 22px;
+}
+
+.admin-form.narrow-form {
+  max-width: 720px;
+}
+
+.admin-form label {
+  display: grid;
+  gap: 8px;
+  font-weight: 700;
+}
+
+.field-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.admin-form input,
+.admin-form textarea,
+.admin-form select {
+  width: 100%;
+  min-height: 42px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  outline: 0;
+  color: var(--text);
+  font: inherit;
+  background: #fff;
+}
+
+.admin-form textarea {
+  resize: vertical;
+}
+
+.wide-field,
+.form-actions,
+.form-note {
+  grid-column: 1 / -1;
+}
+
+.form-note {
+  padding: 12px 14px;
+  border: 1px solid #dbeafe;
+  border-radius: 8px;
+  color: #475569;
+  background: #eff6ff;
+  line-height: 1.7;
+}
+
+.check-field {
+  display: flex !important;
+  flex-direction: row;
+  gap: 10px !important;
+  align-items: center;
+}
+
+.check-field input {
+  width: 18px;
+  min-height: 18px;
+}
+
+.check-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.compact-check {
+  min-height: 42px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.login-page {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: 18px;
+  background: linear-gradient(135deg, #111827, #1f2937);
+}
+
+.login-card {
+  display: grid;
+  gap: 14px;
+  width: min(420px, 100%);
+  padding: 28px;
+}
+
+.login-card h1 {
+  margin-bottom: 0;
+}
+
+.login-card small {
+  color: var(--muted);
+}
+
+@media (max-width: 860px) {
+  .admin-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-sidebar {
+    position: static;
+  }
+
+  .admin-sidebar nav {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .admin-stats,
+  .admin-grid,
+  .admin-form {
+    grid-template-columns: 1fr;
+  }
+
+  .page-head,
+  .admin-hero,
+  .admin-title-row,
+  .admin-top {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .admin-table article,
+  .admin-table.compact-table article {
+    grid-template-columns: 34px 46px minmax(0, 1fr);
+  }
+
+  .admin-table article > span:not(.recommend-logo):not(.round-icon):not(.status-badge),
+  .status-badge,
+  .row-actions {
+    grid-column: 3;
+  }
+
+  .bulk-toolbar span {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .category-sites {
+    padding-left: 12px;
+  }
+
+  .category-site-row {
+    grid-template-columns: 42px minmax(0, 1fr);
+  }
+
+  .category-site-row > span,
+  .category-site-row .row-actions {
+    grid-column: 2;
+  }
+}

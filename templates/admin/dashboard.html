@@ -1,0 +1,42 @@
+{% extends "admin/base.html" %}
+
+{% block title %}后台管理 - SoftHub{% endblock %}
+
+{% block content %}
+  <section class="admin-hero">
+    <div>
+      <h1>后台管理</h1>
+      <p>在这里维护软件、分类和推荐状态，保存后会自动更新前台数据。</p>
+    </div>
+    <div class="admin-actions">
+      <a class="btn primary" href="{{ url_for('admin_site_new') }}">新增软件</a>
+      <a class="btn ghost" href="{{ url_for('admin_category_new') }}">新增分类</a>
+    </div>
+  </section>
+
+  <section class="admin-stats">
+    <article>
+      <span>{{ site_count }}</span>
+      <strong>软件数量</strong>
+    </article>
+    <article>
+      <span>{{ category_count }}</span>
+      <strong>分类数量</strong>
+    </article>
+    <article>
+      <span>{{ recommended_count }}</span>
+      <strong>编辑推荐</strong>
+    </article>
+  </section>
+
+  <section class="admin-grid">
+    <a href="{{ url_for('admin_sites') }}">
+      <strong>管理软件</strong>
+      <p>新增、编辑、删除软件，设置标签、评分、访问量和推荐状态。</p>
+    </a>
+    <a href="{{ url_for('admin_categories') }}">
+      <strong>管理分类</strong>
+      <p>新增或调整分类名称、地址标识和展示数量。</p>
+    </a>
+  </section>
+{% endblock %}

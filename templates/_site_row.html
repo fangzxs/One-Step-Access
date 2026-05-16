@@ -1,0 +1,22 @@
+<article class="site-row">
+  <a class="site-logo-link" href="{{ url_for('visit_site', site_index=site._index) }}" target="_blank" rel="noopener">
+    {% with icon_class='site-logo' %}
+      {% include "_site_icon.html" %}
+    {% endwith %}
+  </a>
+  <div class="site-main">
+    <div class="site-heading">
+      <a href="{{ url_for('visit_site', site_index=site._index) }}" target="_blank" rel="noopener">{{ site.name }}</a>
+      <span>{{ site.version }}</span>
+    </div>
+    <p>{{ site.description }}</p>
+  </div>
+  <div class="site-tags">
+    {% for tag in site.tags[:2] %}
+      <a href="{{ url_for('index', q=tag) }}">{{ tag }}</a>
+    {% endfor %}
+  </div>
+  <span class="muted">{{ (site.updated_at | default(site.added_at)) | updated_label }}</span>
+  <span class="muted" data-site-visits="{{ site._index }}">{{ site.visits | compact_count }} 次</span>
+  <a class="download-btn" href="{{ url_for('visit_site', site_index=site._index) }}" target="_blank" rel="noopener">访问</a>
+</article>
