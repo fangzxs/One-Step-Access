@@ -1,10 +1,10 @@
-# ![](E:\go-web\static\img\softhub-logo.svg)一步达
+# 一步达
 
 软件/网站导航站，Flask + JSON 数据文件实现。前台由 JavaScript 调用 API 动态渲染，后台使用 Flask 模板管理数据。
 
-<img src="E:\go-web\首页.png" style="zoom: 25%;" />
+![首页截图](docs-home.png)
 
-<img src="E:\go-web\后台.png" style="zoom:25%;" />
+![后台截图](docs-admin.png)
 
 ## 快速开始
 
